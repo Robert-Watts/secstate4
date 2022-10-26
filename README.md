@@ -1,8 +1,8 @@
-# User Stories Creator
+# Secretary of State for... Creator
 
 ![A screen shot of](screenshot.png)
 
-This is a project to create user stories especially based around the Twitter user [@ShitUserStory](https://twitter.com/shituserstory)
+This is a project to create mock "Secretary of State for..." images based around the UK Twitter trend.
 
 ## Available Scripts
 
