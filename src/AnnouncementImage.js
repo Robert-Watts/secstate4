@@ -3,8 +3,8 @@ import "./Announcement.scss";
 
 const AnnouncementImage = React.forwardRef((props, ref) => {
     return(
-        <>
-            <div className="background box" ref={ref}>
+        <div ref={ref} {...props}>
+            <div className="background box">
                 <div className="left-third">
                 </div>
                 <div className="right-third">
@@ -12,7 +12,7 @@ const AnnouncementImage = React.forwardRef((props, ref) => {
                 </div>
             </div>
             <div className="foreground box">
-                <p className="number">10</p>
+                <p className="number number10_font">10</p>
                 <div className="namesection section">
                     <p className="therthon announcement-content bold">The RT HON</p>
                     <p className="namemp announcement-content bold"><span className="name">{props.name}</span> MP</p>
@@ -23,7 +23,7 @@ const AnnouncementImage = React.forwardRef((props, ref) => {
                     <p className="for announcement-content bold">For <span>{props.department}</span></p>
                 </div>
             </div>
-        </>
+        </div>
     )
 });
 

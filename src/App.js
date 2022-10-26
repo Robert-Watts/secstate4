@@ -11,7 +11,7 @@ const IMAGE_ID = "SecStateImage";
 function App() {
   const [photo, setPhoto] = useState(Larry);
   const [nameText, setNameText] = useState("Larry the Cat");
-  const [departmentText, setDepartmentText] = useState("Secretary of State for Cats");
+  const [departmentText, setDepartmentText] = useState("Cats");
   const [isLoading, setIsLoading] = useState(false);
 
   function onSubmit(e) {
@@ -83,29 +83,33 @@ function App() {
             <Button
                 variant="primary"
                 type={"reset"}
-                className={"float-right"}
+                className={"float-right mr-2"}
                 disabled={isLoading}
             >
               {isLoading && (
                   <>
                   <span
-                      className="spinner-border spinner-border-sm mr-2"
+                      className="spinner-border spinner-border-sm mr-2 "
                       role="status"
                       aria-hidden="true"
                   />
                     <span className="sr-only mr-2">Loading...</span>
                   </>
               )}
-              Download
+              Clear
             </Button>
           </Form>
         </Col>
         <Col md={8} lg={9} className={"pt-2 order-first order-md-last"}>
-          <AnnouncementImage
-            photo={photo}
-            name={nameText}
-            department={departmentText}
-          />
+          <div >
+            <AnnouncementImage
+                id={IMAGE_ID}
+                photo={photo}
+                name={nameText}
+                department={departmentText}
+            />
+          </div>
+
         </Col>
       </Row>
     </Container>

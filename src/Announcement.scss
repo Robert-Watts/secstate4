@@ -1,74 +1,88 @@
+@font-face {
+  font-family: 'Kindersley-Grand-Arcade';
+  src:url('fonts/Kindersley-Grand-Arcade/Kindersley-Grand-Arcade.ttf.woff') format('woff'),
+  url('fonts/Kindersley-Grand-Arcade/Kindersley-Grand-Arcade.ttf.svg#Kindersley-Grand-Arcade') format('svg'),
+  url('fonts/Kindersley-Grand-Arcade/Kindersley-Grand-Arcade.ttf.eot'),
+  url('fonts/Kindersley-Grand-Arcade/Kindersley-Grand-Arcade.ttf.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .background {
-    height: 100vh;
-    display: flex;
-    width: 100%;
-    position: relative;
-  }
+  height: 100vh;
+  display: flex;
+  width: 100%;
+  position: relative;
+}
 
-  .left-third {
-    background-color: #021535;
-    height: 100vh;
-    float: left;
-    width: 33%;
-  }
+.left-third {
+  background-color: #021535;
+  height: 100vh;
+  float: left;
+  width: 33%;
+}
 
-  .right-third{
-    float: left;
-    width: 67%;
-    background-color: aqua;
-  }
+.right-third{
+  float: left;
+  width: 67%;
+  background-color: aqua;
+}
 
-  .foreground{
-    z-index: 9;
-  }
+.foreground{
+  z-index: 9;
+}
 
-  .box {
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+.box {
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
-  .number {
-    top: 0;
-    margin: 10px;
-    color: #fdfdfc;
-  }
+.number {
+  top: 0;
+  margin: 10px;
+  color: #fdfdfc;
+}
 
-  .section{
-    margin: 10px;
-    color: #fdfdfc;
-    text-transform: uppercase;
-    font-size:xX-large;
-    position: absolute;
-  }
+.section{
+  margin: 10px;
+  color: #fdfdfc;
+  text-transform: uppercase;
+  font-size:xX-large;
+  position: absolute;
+}
 
-  .namesection{
-    bottom: 200px
-  }
+.namesection{
+  bottom: 200px
+}
 
-  .secstatesection {
-    bottom: 60px;
-  }
+.secstatesection {
+  bottom: 60px;
+}
 
-  .announcement-content {
-    width: max-content;
-    background-color: #021535;
-    padding: 2px;
-    margin: 0;
-  }
+.announcement-content {
+  width: max-content;
+  background-color: #021535;
+  padding: 2px;
+  margin: 0;
+}
 
-  .bold {
-    font-weight: bold;
-  }
+.bold {
+  font-weight: bold;
+}
 
-  .appointed {
-    font-size: large;
-    margin-bottom: 10px;
-  }
+.appointed {
+  font-size: large;
+  margin-bottom: 10px;
+}
 
-  .photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.number10_font {
+  font-family: 'Kindersley-Grand-Arcade';
+}
