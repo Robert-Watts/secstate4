@@ -1,7 +1,7 @@
 import "./App.scss";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { useState } from "react";
-import { saveSvgAsPng } from "save-svg-as-png";
+import { toPng } from 'html-to-image';
 import * as React from "react";
 import Title from "./Title";
 import AnnouncementImage from "./AnnouncementImage";
@@ -13,15 +13,26 @@ function App() {
   const [nameText, setNameText] = useState("Larry the Cat");
   const [departmentText, setDepartmentText] = useState("Cats");
   const [isLoading, setIsLoading] = useState(false);
+  const printRef = React.useRef();
 
-  function onSubmit(e) {
+  async function onSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
-    saveSvgAsPng(document.getElementById(IMAGE_ID), "SecState.png").then(
-      () => {
-        setIsLoading(false);
-      }
-    );
+  
+    toPng(printRef.current, { 
+      cacheBust: true, 
+      height: 750,
+    })
+      .then((dataUrl) => {
+        const link = document.createElement('a')
+        link.download = 'my-image-name.png'
+        link.href = dataUrl
+        link.click()
+      })
+      .catch((err) => {
+        console.log(err)
+      });
+    setIsLoading(false);
   }
 
   function onReset(e) {
@@ -36,9 +47,18 @@ function App() {
   return (
     <Container fluid={true} className={"md-min-vh-100"}>
       <Row className={"h-100"}>
-        <Col md={4} lg={3} className={"sidebar-bg pt-2 menu"}>
+        <Col md={{ order: 12 }} className={"pt-2"}>
+          <AnnouncementImage
+            ref={printRef}
+            id={IMAGE_ID}
+            photo={photo}
+            name={nameText}
+            department={departmentText}
+          />
+        </Col>
+        <Col md={{ order: 1 }} className={"sidebar-bg pt-2 menu"}>
           <Form onSubmit={onSubmit} onReset={onReset}>
-            <Title className={"d-none d-md-block"} />
+            <Title />
             <Form.Group controlId="formPhoto">
               <Form.Label>Photo</Form.Label>
               <Form.Control
@@ -99,17 +119,6 @@ function App() {
               Clear
             </Button>
           </Form>
-        </Col>
-        <Col md={8} lg={9} className={"pt-2 order-first order-md-last"}>
-          <div >
-            <AnnouncementImage
-                id={IMAGE_ID}
-                photo={photo}
-                name={nameText}
-                department={departmentText}
-            />
-          </div>
-
         </Col>
       </Row>
     </Container>

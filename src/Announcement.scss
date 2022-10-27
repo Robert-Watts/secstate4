@@ -37,12 +37,14 @@
   position: absolute;
   top: 0;
   left: 0;
+  max-height: 1080px;
 }
 
 .number {
   top: 0;
   margin: 10px;
   color: #fdfdfc;
+  font-size: xx-large;
 }
 
 .section{
@@ -85,4 +87,10 @@
 
 .number10_font {
   font-family: 'Kindersley-Grand-Arcade';
+}
+
+@media screen and (max-width: 768px) {
+  .menu {
+    top: 100vh;
+  }
 }
