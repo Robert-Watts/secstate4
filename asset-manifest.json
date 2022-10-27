@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/User-Stories/static/css/main.20c16038.chunk.css",
+    "main.js": "/User-Stories/static/js/main.b778505f.chunk.js",
+    "main.js.map": "/User-Stories/static/js/main.b778505f.chunk.js.map",
+    "runtime-main.js": "/User-Stories/static/js/runtime-main.6236e461.js",
+    "runtime-main.js.map": "/User-Stories/static/js/runtime-main.6236e461.js.map",
+    "static/js/2.120ea5e5.chunk.js": "/User-Stories/static/js/2.120ea5e5.chunk.js",
+    "static/js/2.120ea5e5.chunk.js.map": "/User-Stories/static/js/2.120ea5e5.chunk.js.map",
+    "static/js/3.4ea80d2d.chunk.js": "/User-Stories/static/js/3.4ea80d2d.chunk.js",
+    "static/js/3.4ea80d2d.chunk.js.map": "/User-Stories/static/js/3.4ea80d2d.chunk.js.map",
+    "index.html": "/User-Stories/index.html",
+    "static/css/main.20c16038.chunk.css.map": "/User-Stories/static/css/main.20c16038.chunk.css.map",
+    "static/js/2.120ea5e5.chunk.js.LICENSE.txt": "/User-Stories/static/js/2.120ea5e5.chunk.js.LICENSE.txt",
+    "static/media/Announcement.scss": "/User-Stories/static/media/Kindersley-Grand-Arcade.ttf.beace952.woff",
+    "static/media/larry_the_cat.bfefb3ef.jpg": "/User-Stories/static/media/larry_the_cat.bfefb3ef.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6236e461.js",
+    "static/js/2.120ea5e5.chunk.js",
+    "static/css/main.20c16038.chunk.css",
+    "static/js/main.b778505f.chunk.js"
+  ]
+}
