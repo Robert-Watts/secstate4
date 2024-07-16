@@ -1,28 +1,32 @@
-import "./App.scss";
+import { FormEvent, useRef, useState } from 'react'
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { useState } from "react";
 import { toPng } from 'html-to-image';
-import * as React from "react";
 import Title from "./Title";
 import AnnouncementImage from "./AnnouncementImage";
 import Larry from "./larry_the_cat.jpg"
-const IMAGE_ID = "SecStateImage";
+import { imageStyle, titleRole } from './types';
+const IMAGE_ID = "SecStateImage"
+
+
 
 function App() {
-  const [photo, setPhoto] = useState(Larry);
+  const [photo, setPhoto] = useState<string|undefined>(Larry);
   const [nameText, setNameText] = useState("Larry the Cat");
   const [departmentText, setDepartmentText] = useState("Cats");
   const [isLoading, setIsLoading] = useState(false);
-  const printRef = React.useRef();
+  const printRef = useRef<HTMLDivElement>(null);
+  const [style, setStyle] = useState<imageStyle>('style-legacy');
+  const [role, setRole] = useState<titleRole>('Secretary of State');
 
-  async function onSubmit(e) {
+  async function onSubmit(e: FormEvent) {
     e.preventDefault();
     setIsLoading(true);
-  
-    toPng(printRef.current, { 
-      cacheBust: true, 
-      height: 750,
-    })
+
+    if (printRef.current) {
+      toPng(printRef.current, {
+        cacheBust: true,
+        height: 750,
+      })
       .then((dataUrl) => {
         const link = document.createElement('a')
         link.download = 'my-image-name.png'
@@ -32,13 +36,14 @@ function App() {
       .catch((err) => {
         console.log(err)
       });
+    }
     setIsLoading(false);
   }
 
-  function onReset(e) {
+  function onReset(e: FormEvent) {
     e.preventDefault();
     setIsLoading(true);
-    setPhoto(null);
+    setPhoto(undefined);
     setNameText("");
     setDepartmentText("")
     setIsLoading(false);
@@ -54,11 +59,20 @@ function App() {
             photo={photo}
             name={nameText}
             department={departmentText}
+            styleMode={style}
+            role={role}
           />
         </Col>
         <Col md={{ order: 1 }} className={"sidebar-bg pt-2 menu"}>
           <Form onSubmit={onSubmit} onReset={onReset}>
             <Title />
+            <Form.Group controlId='styling'>
+              <Form.Label>Style</Form.Label>
+              <Form.Select onChange={(event) => setStyle(event.target.value as imageStyle)}>
+                <option value='style-legacy'>Legacy</option>
+                <option value='style-2024'>2024</option>
+              </Form.Select>
+            </Form.Group>
             <Form.Group controlId="formPhoto">
               <Form.Label>Photo</Form.Label>
               <Form.Control
@@ -73,6 +87,14 @@ function App() {
                 value={nameText}
                 onChange={(e) => setNameText(e.target.value)}
               />
+            </Form.Group>
+            <Form.Group controlId='styling'>
+              <Form.Label>Role</Form.Label>
+              <Form.Select onChange={(event) => setRole(event.target.value as titleRole)}>
+                <option value='Secretary of State'>Secretary of State</option>
+                <option value='Chief'>Chief</option>
+                <option value='Ambassador to'>Ambassador</option>
+              </Form.Select>
             </Form.Group>
             <Form.Group controlId="formDepartment">
               <Form.Label>Department</Form.Label>
@@ -101,20 +123,20 @@ function App() {
               Download
             </Button>
             <Button
-                variant="primary"
-                type={"reset"}
-                className={"float-right mr-2"}
-                disabled={isLoading}
+              variant="primary"
+              type={"reset"}
+              className={"float-right mr-2"}
+              disabled={isLoading}
             >
               {isLoading && (
-                  <>
+                <>
                   <span
-                      className="spinner-border spinner-border-sm mr-2 "
-                      role="status"
-                      aria-hidden="true"
+                    className="spinner-border spinner-border-sm mr-2 "
+                    role="status"
+                    aria-hidden="true"
                   />
-                    <span className="sr-only mr-2">Loading...</span>
-                  </>
+                  <span className="sr-only mr-2">Loading...</span>
+                </>
               )}
               Clear
             </Button>
@@ -125,4 +147,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
