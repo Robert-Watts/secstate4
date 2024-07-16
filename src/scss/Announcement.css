@@ -8,15 +8,24 @@
   font-style: normal;
 }
 
+.style-legacy {
+  background-color: #021535;
+  color: #fdfdfc;
+}
+
+.style-2024 {
+  background-color: #fff;
+  color: black;
+}
+
 .background {
   height: 100vh;
   display: flex;
-  width: 100%;
   position: relative;
 }
 
 .left-third {
-  background-color: #021535;
+  
   height: 100vh;
   float: left;
   width: 33%;
@@ -25,7 +34,6 @@
 .right-third{
   float: left;
   width: 67%;
-  background-color: aqua;
 }
 
 .foreground{
@@ -43,13 +51,11 @@
 .number {
   top: 0;
   margin: 10px;
-  color: #fdfdfc;
   font-size: xx-large;
 }
 
 .section{
   margin: 10px;
-  color: #fdfdfc;
   text-transform: uppercase;
   font-size:xX-large;
   position: absolute;
@@ -65,7 +71,6 @@
 
 .announcement-content {
   width: max-content;
-  background-color: #021535;
   padding: 2px;
   margin: 0;
 }

@@ -1,0 +1,14 @@
+// Import all of Bootstrap's CSS
+@import "bootstrap/scss/bootstrap";
+
+.md-min-vh-100 {
+  @include media-breakpoint-up(md) {
+    height: 100vh;
+  }
+}
+
+.sidebar-bg {
+  @include media-breakpoint-up(md) {
+    background-color: $light;
+  }
+}
